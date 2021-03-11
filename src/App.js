@@ -1,23 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
 
+import ItemCount from './components/ItemCount';
+import { useState } from 'react';
+
 function App() {
+  const [stockActual, setStockActual] = useState(5);
+
+   
+    var restartStock = (e, nuevoStock) => { 
+    
+      e.preventDefault();
+
+      if(stockActual > 0) {
+        setStockActual((stockActual) => stockActual - nuevoStock );
+
+      }
+      
+      
+
+   }
+   
+    
+   
+  
+  
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ItemCount stock ={stockActual} initial={1} onAdd={restartStock} />
     </div>
   );
 }
