@@ -14,6 +14,7 @@ function App() {
 
       if(stockActual > 0) {
         setStockActual((stockActual) => stockActual - nuevoStock );
+        
 
       }
       
